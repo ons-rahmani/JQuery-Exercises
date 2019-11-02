@@ -11,7 +11,7 @@
       width: 50%;
       margin: 5em auto 0;
       padding: 2em;
-      background: yellow;
+      background: pink;
       border: 1px solid black;
       text-align: center;
       font: bold 1em/1.5 sans-serif;
@@ -29,7 +29,7 @@
   <div class="el">
     <p>Hello, I'm "el"</p>
     <p><a href="https://stackoverflow.com/" target="_blank">I'm a link</a></p>
-    <input type="submit" value="I'm a button">
+    <input id="go" type="submit" value="I'm a button">
   </div>
 
   <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -38,32 +38,65 @@
 
     // - How do we target the HTML element with class "el"?
 
+    $('.el')
+
     // - How do we make "el" disappear?
-    //     - What exactly happened in the DOM to make el disappear?
+    $('.el').fadeOut()
+
+    //   - What exactly happened in the DOM to make el disappear?
+
+    //Jquerry hide  the element using CSS 
 
     // - How do we make el re-appear?
+    $('.el').fadeIn()
 
     // - How do we make el disappear slowly? Can we do it even slower?
+    $('.el').fadeOut(2000)
+    // $('.el').hide("slow")
 
     // - How do we make el re-appear slowly? Can we do it faster?
+    $(".el").fadeIn(1000)
+    // $(".el").show('slow')
 
     // - How do we make el collapse?
+     $('.el').hide()
+
+
 
     // - How do we make el re-expand?
 
+    $('.el').show()
+
     // - How do we make el collapse if it's there, but expand if it's not, without writing a complicated "if" statement?
+
     //     - What's a common page element that might use this idea?
 
     // - How do we make el's background color change? (There are several ways to do this. Could you do it without inline styles?)
 
+    // $('.el').css('background', 'pink');
+    
     // - How can we go back and forth between classes?
     //     - Can we use this new back-and-forth idea with other actions?
+    $('#go').on('click', function() {
+      $('.el').toggleClass('alt2');
+    });
 
     // - How do we change the text inside el?
+    // $('.el').text("hello")
+    // $('.el').html("hello")
+
     //     - Whoops! Did we remove the link and button too? If so, why?
+
+    //===> we did remove bcz html function override the element content 
+
     //     - What if we wanted to make our new text italic?
 
-    // - How do we add a photo into el? (http://lorempixel.com/300/200/)
+    $('.el').css('font-style', 'italic')
+
+    // - How do we add a photo into el? (http://lorempixel.com/300/200/
+    var img = $('<img src = "http://lorempixel.com/300/200/">')
+
+    $('.el').append(img)
 
     // - How to we get rid of everything inside el, but keep it? Can you think of 2 ways?
 
